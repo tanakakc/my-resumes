@@ -25,6 +25,9 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 # Use Devise for User authentication
 gem 'devise', '~> 4.2.0'
 gem 'devise-i18n', '~> 1.1.1'
+# User i18n for translate en to ja
+gem 'rails-i18n', '~> 5.0.0'
+
 
 # For Bootstrap's tooltip and popover
 source 'https://rails-assets.org' do
