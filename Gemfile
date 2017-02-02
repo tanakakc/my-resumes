@@ -22,6 +22,9 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 # Use Bootstrap 4
 gem 'bootstrap', '~> 4.0.0.alpha6'
+# Use Devise for User authentication
+gem 'devise', '~> 4.2.0'
+gem 'devise-i18n', '~> 1.1.1'
 
 # For Bootstrap's tooltip and popover
 source 'https://rails-assets.org' do
