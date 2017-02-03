@@ -1,0 +1,1 @@
+json.partial! "work_histories/work_history", work_history: @work_history

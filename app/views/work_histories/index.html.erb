@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Work Histories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Company name</th>
+      <th>Joined at</th>
+      <th>Leaved at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @work_histories.each do |work_history| %>
+      <tr>
+        <td><%= work_history.user %></td>
+        <td><%= work_history.company_name %></td>
+        <td><%= work_history.joined_at %></td>
+        <td><%= work_history.leaved_at %></td>
+        <td><%= link_to 'Show', work_history %></td>
+        <td><%= link_to 'Edit', edit_work_history_path(work_history) %></td>
+        <td><%= link_to 'Destroy', work_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work History', new_work_history_path %>

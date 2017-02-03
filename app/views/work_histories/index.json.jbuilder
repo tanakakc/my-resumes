@@ -1,0 +1,1 @@
+json.array! @work_histories, partial: 'work_histories/work_history', as: :work_history
