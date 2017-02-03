@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  # メールとパスワード、パスワード確認があり、パスワードとパスワード確認が同じであれば有効な状態であること
+  # メールとパスワードがあり、パスワードとパスワード確認が同じであれば有効な状態であること
   it "is valid with a email, password and password confirmation that same as password" do
     user = User.new(
       email: 'test@example.com',
