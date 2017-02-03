@@ -3,16 +3,16 @@ require "rails_helper"
 RSpec.describe WorkHistoriesController, type: :routing do
   describe "routing" do
 
-    it "routes to #index" do
-      expect(:get => "/work_histories").to route_to("work_histories#index")
+    it "doesn't routes to #index" do
+      expect(:get => "/work_histories").not_to be_routable
     end
 
     it "routes to #new" do
       expect(:get => "/work_histories/new").to route_to("work_histories#new")
     end
 
-    it "routes to #show" do
-      expect(:get => "/work_histories/1").to route_to("work_histories#show", :id => "1")
+    it "doesn't routes to #show" do
+      expect(:get => "/work_histories/1").not_to be_routable
     end
 
     it "routes to #edit" do
