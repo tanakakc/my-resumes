@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      Hello! <%= current_user.email %> |
+      <%= link_to "ログアウト" %>
+    <% else %>
+      <%= link_to I18n.t('devise.registrations.new.sign_up'), new_user_registration_path %> |
+      <%= link_to I18n.t('devise.sessions.new.sign_in'), new_user_session_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
