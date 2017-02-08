@@ -50,6 +50,7 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails', '~> 4.8.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
@@ -64,8 +65,12 @@ group :development do
 end
 
 group :test do
+  gem 'faker', '~> 1.7.3'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'capybara', '~> 2.12.0'
+  gem 'database_cleaner', '~> 1.5.3'
+  gem 'launchy', '~> 2.4.3'
+  gem 'selenium-webdriver', '~> 3.0.7'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
