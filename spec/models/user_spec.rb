@@ -3,10 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   # メールとパスワードがあり、パスワードとパスワード確認が同じであれば有効な状態であること
   it "is valid with a email, password and password confirmation that same as password" do
-    user = User.new(
-      email: 'test@example.com',
-      password: 'password', password_confirmation: 'password'
-    )
+    user = FactoryGirl.build(:user)
     expect(user).to be_valid
   end
 
