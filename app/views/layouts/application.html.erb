@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MyResumes</title>
+    <title>My Resumes</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,30 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <%= link_to "My Resumes", root_path, class: "navbar-brand" %>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <span class="navbar-text">Hi! <%= current_user.email %></span>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link nav-item" %>
+            <% else %>
+              <%= link_to new_user_session_path, class: "nav-item btn btn-secondary mr-sm-2" do %>
+                <%= I18n.t('devise.sessions.new.sign_in') %>
+              <% end %>
+              <%= link_to new_user_registration_path, class: "nav-item btn btn-primary my-2 my-sm-0" do %>
+                <%= I18n.t('devise.registrations.new.sign_up') %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+
     <% if flash[:alert] %>
       <div class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
     <% end %>
@@ -16,13 +40,6 @@
       <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
     <% end %>
 
-    <% if user_signed_in? %>
-      Hello! <%= current_user.email %> |
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to I18n.t('devise.registrations.new.sign_up'), new_user_registration_path %> |
-      <%= link_to I18n.t('devise.sessions.new.sign_in'), new_user_session_path %>
-    <% end %>
     <%= yield %>
   </body>
 </html>
