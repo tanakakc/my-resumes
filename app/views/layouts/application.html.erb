@@ -9,9 +9,16 @@
   </head>
 
   <body>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
+    <% end %>
+    <% if flash[:notice] %>
+      <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+    <% end %>
+
     <% if user_signed_in? %>
       Hello! <%= current_user.email %> |
-      <%= link_to "ログアウト" %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to I18n.t('devise.registrations.new.sign_up'), new_user_registration_path %> |
       <%= link_to I18n.t('devise.sessions.new.sign_in'), new_user_session_path %>
