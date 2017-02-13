@@ -1,0 +1,6 @@
+ja:
+  helpers:
+    submit:
+      resume:
+        create: "履歴書作成"
+        update: "履歴書を更新"

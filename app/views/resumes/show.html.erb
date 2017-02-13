@@ -1,0 +1,27 @@
+<p>
+  <strong>User:</strong>
+  <%= @resume.user.id %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @resume.company_name %>
+</p>
+
+<p>
+  <strong>Entry reason:</strong>
+  <%= @resume.entry_reason %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @resume.summary %>
+</p>
+
+<p>
+  <strong>Request:</strong>
+  <%= @resume.request %>
+</p>
+
+<%= link_to 'Edit', edit_resume_path(@resume) %> |
+<%= link_to 'Back', resumes_path %>
