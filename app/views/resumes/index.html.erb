@@ -1,33 +1,24 @@
-<h1>あなたの履歴書</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Company name</th>
-      <th>Entry reason</th>
-      <th>Summary</th>
-      <th>Request</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container mt-4">
+  <div class="mb-2 clearfix">
+    <h1 class="h4 float-left">あなたの履歴書</h1>
+    <%= link_to '+ 作成', new_resume_path, class: "btn btn-primary float-right" %>
+  </div>
+  <div class="row">
     <% @resumes.each do |resume| %>
-      <tr>
-        <td><%= resume.user.id %></td>
-        <td><%= resume.company_name %></td>
-        <td><%= resume.entry_reason %></td>
-        <td><%= resume.summary %></td>
-        <td><%= resume.request %></td>
-        <td><%= link_to 'Show', resume %></td>
-        <td><%= link_to 'Edit', edit_resume_path(resume) %></td>
-        <td><%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="col-sm-6 mb-2">
+        <div class="card">
+          <div class="card-block">
+            <h2 class="h5 card-title">
+              <%=link_to resume.company_name, resume %>
+            </h2>
+            <%= link_to '編集', edit_resume_path(resume), class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to '削除', resume, class: "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: 'この履歴書を削除してもよろしいですか？' } %>
+          </div>
+          <div class="card-footer text-muted py-1">
+            <small>作成日: <%= resume.created_at.to_date %></small>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to '履歴書を作成', new_resume_path %>
+  </div>
+</div>
