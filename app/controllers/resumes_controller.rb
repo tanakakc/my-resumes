@@ -10,7 +10,16 @@ class ResumesController < ApplicationController
 
   # GET /resumes/1
   # GET /resumes/1.json
+  # GET /resumes/1.pdf
   def show
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf do
+        render pdf: "履歴書_#{@resume.company_name}",   # Excluding ".pdf" extension.
+               encoding: "utf-8"
+      end
+    end
   end
 
   # GET /resumes/new

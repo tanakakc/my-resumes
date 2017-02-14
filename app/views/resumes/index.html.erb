@@ -12,6 +12,7 @@
               <%=link_to resume.company_name, resume %>
             </h2>
             <%= link_to '編集', edit_resume_path(resume), class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to 'PDF出力', resume_path(resume, format: :pdf), class: "btn btn-outline-primary btn-sm" %>
             <%= link_to '削除', resume, class: "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: 'この履歴書を削除してもよろしいですか？' } %>
           </div>
           <div class="card-footer text-muted py-1">
