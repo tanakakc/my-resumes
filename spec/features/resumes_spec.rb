@@ -34,6 +34,20 @@ feature "Resumes" do
 
       expect(page.response_headers['Content-Type']).to eq("application/pdf")
     end
+
+    scenario "see only my resumes" do
+      user = FactoryGirl.create(:user)
+      resume = FactoryGirl.create(:resume, user: user, company_name: "株式会社ABC")
+
+      other_user = FactoryGirl.create(:user, email: "other@example.com")
+      other_resume = FactoryGirl.create(:resume, user: other_user, company_name: "株式会社DEF")
+
+      login_as(user, :scope => :user)
+      visit root_path
+
+      expect(page).to have_content "株式会社ABC"
+      expect(page).not_to have_content "株式会社DEF"
+    end
   end
 
   context "as a not user" do
