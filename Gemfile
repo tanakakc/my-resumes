@@ -48,6 +48,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use Wicked PDF for export resume as pdf
+gem 'wicked_pdf', '~> 1.1.0'
+gem 'wkhtmltopdf-binary'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.8.0'

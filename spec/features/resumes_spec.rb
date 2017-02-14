@@ -23,6 +23,17 @@ feature "Resumes" do
       expect(page).to have_current_path(root_path)
       expect(page).to have_content "株式会社ABC"
     end
+
+    scenario "export resume as pdf" do
+      user = FactoryGirl.create(:user)
+      resume = FactoryGirl.create(:resume, user: user)
+      login_as(user, :scope => :user)
+
+      visit root_path
+      click_link("PDF出力")
+
+      expect(page.response_headers['Content-Type']).to eq("application/pdf")
+    end
   end
 
   context "as a not user" do
