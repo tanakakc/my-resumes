@@ -8,7 +8,7 @@ feature "Resumes" do
 
       visit root_path
       expect(page).to have_content "あなたの履歴書"
-      click_link("+ 作成")
+      click_link("作成")
 
       expect(page).to have_current_path(new_resume_path)
       expect(page).to have_content "新しく履歴書を作成する"
