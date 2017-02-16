@@ -52,6 +52,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'wicked_pdf', '~> 1.1.0'
 gem 'wkhtmltopdf-binary'
 
+# Use FontAwesome for many icon fonts
+gem 'font-awesome-rails', '~> 4.7.0.1'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.8.0'
