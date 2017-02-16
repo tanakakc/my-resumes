@@ -12,15 +12,15 @@
               <%= fa_icon "file-text-o", class: "fa-fw text-muted", aria: { hidden: true } %>
               <%=link_to resume.company_name, resume %>
             </h2>
-            <%= link_to edit_resume_path(resume), class: "btn btn-secondary btn-sm px-3", title: "編集する" do %>
+            <%= link_to edit_resume_path(resume), class: "btn btn-secondary btn-sm px-3", title: "編集する", data: { toggle: "tooltip", placement: "top" } do %>
               <%= fa_icon "pencil", aria: { hidden: true } %>
               <%= content_tag "span", "#{resume.company_name}の履歴書を編集する", class: "sr-only" %>
             <% end %>
-            <%= link_to resume_path(resume, format: :pdf), class: "btn btn-secondary btn-sm px-3", title: "PDF出力する" do %>
+            <%= link_to resume_path(resume, format: :pdf), class: "btn btn-secondary btn-sm px-3", title: "PDF出力する", data: { toggle: "tooltip", placement: "top" } do %>
               <%= fa_icon "download", aria: { hidden: true } %>
               <%= content_tag "span", "#{resume.company_name}の履歴書をPDF出力する", class: "sr-only" %>
             <% end %>
-            <%= link_to resume, class: "btn btn-outline-danger btn-sm px-3", method: :delete, data: { confirm: 'この履歴書を削除してもよろしいですか？' }, title: "削除する" do %>
+            <%= link_to resume, class: "btn btn-outline-danger btn-sm px-3", method: :delete, data: { confirm: 'この履歴書を削除してもよろしいですか？' }, title: "削除する", data: { toggle: "tooltip", placement: "top" } do %>
               <%= fa_icon "trash-o", aria: { hidden: true } %>
               <%= content_tag "span", "#{resume.company_name}の履歴書を削除する", class: "sr-only" %>
             <% end %>
