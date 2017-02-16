@@ -17,7 +17,8 @@ class ResumesController < ApplicationController
       format.json
       format.pdf do
         render pdf: "履歴書_#{@resume.company_name}",   # Excluding ".pdf" extension.
-               encoding: "utf-8"
+               encoding: "utf-8",
+               show_as_html: params.key?('debug')
       end
     end
   end
